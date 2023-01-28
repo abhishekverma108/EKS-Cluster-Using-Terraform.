@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: myd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      name: "wpod"
+      labels: 
+        env: prod
+
+    spec:
+      containers:
+      - name: "webc1"
+        image: "abhishekverma109/app:latest"
